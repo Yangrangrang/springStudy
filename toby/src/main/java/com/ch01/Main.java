@@ -1,4 +1,4 @@
-package com.ch01;
+package toby.src.main.java.com.ch01;
 
 import com.ch01.dao.UserDao;
 import com.ch01.domain.User;
@@ -10,7 +10,7 @@ public class Main {
         UserDao userDao = new UserDao();
 
         User user = new User();
-        user.setId("test1111");
+        user.setId("test1113");
         user.setName("yang");
         user.setPassword("yang");
 
