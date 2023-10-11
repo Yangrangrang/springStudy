@@ -4,7 +4,7 @@ import com.ch01.domain.User;
 
 import java.sql.*;
 
-public abstract class UserDao {
+public class UserDao {
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = getConnection();
 
@@ -43,5 +43,10 @@ public abstract class UserDao {
         return user;
     }
 
-    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/SPRINGSTUDYDB", "root", "root");
+        return c;
+    }
 }
