@@ -2,6 +2,7 @@ package toby.src.main.java.com.ch01;
 
 import com.ch01.dao.ConnectionMaker;
 import com.ch01.dao.DConnectionMaker;
+import com.ch01.dao.DaoFactory;
 import com.ch01.dao.UserDao;
 import com.ch01.domain.User;
 
@@ -9,12 +10,10 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        ConnectionMaker connectionMaker = new DConnectionMaker();
-
-        UserDao dao = new UserDao(connectionMaker);
+        UserDao dao = new DaoFactory().userDao();
 
         User user = new User();
-        user.setId("test1113");
+        user.setId("test1117");
         user.setName("yang");
         user.setPassword("yang");
 
