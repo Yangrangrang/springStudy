@@ -5,8 +5,13 @@ import com.ch01.domain.User;
 import java.sql.*;
 
 public abstract class UserDao {
+    private SimpleConnectionMaker simpleConnectionMaker;
+
+    public UserDao(){
+        simpleConnectionMaker = new SimpleConnectionMaker();
+    }
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Connection c = getConnection();
+        Connection c = SimpleConnectionMaker.makeNewConnection();
 
         // SQL 담기 (prepareStatement) : users 테이블 insert문
         PreparedStatement ps = c.prepareStatement("insert into users(id,name,password) values (?,?,?)");
@@ -24,7 +29,7 @@ public abstract class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Connection c = getConnection();
+        Connection c = SimpleConnectionMaker.makeNewConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);
