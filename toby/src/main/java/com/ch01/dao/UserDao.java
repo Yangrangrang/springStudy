@@ -4,7 +4,7 @@ import com.ch01.domain.User;
 
 import java.sql.*;
 
-public abstract class UserDao {
+public class UserDao {
     private SimpleConnectionMaker simpleConnectionMaker;
 
     public UserDao(){
@@ -48,7 +48,7 @@ public abstract class UserDao {
         return user;
     }
 
-    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+//    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
 
 
 }
