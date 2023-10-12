@@ -2,10 +2,14 @@ package com.ch01.dao;
 
 public class DaoFactory {
     public UserDao userDao() {
-        return new UserDao(new DConnectionMaker());
+        return new UserDao(connectionMaker());
     }
 
-    public AccountDao accountDao() {
-        return new AccountDao(new DConnectionMaker());
+//    public AccountDao accountDao() {
+//        return new AccountDao(connectionMaker());
+//    }
+
+    public ConnectionMaker connectionMaker(){
+        return new DConnectionMaker();
     }
 }
